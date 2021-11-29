@@ -16,6 +16,6 @@ public class FaqService {
     CrmsClient crmsClient;
 
     public List<Faq> getFaqList(Faq.FaqParam faqParam) {
-        return crmsClient.csSend(faqParam.getQuery(), faqParam.getType(), faqParam.getData(), faqParam.getRow(), faqParam.getLv3(), faqParam.getGubun());
+        return crmsClient.csSend(faqParam.getCrmsFaqCallType().getQuery(), faqParam.getCrmsFaqCallType().getType(), faqParam.getData(), faqParam.getRow(), faqParam.getLv3(), faqParam.getGubun());
     }
 }
