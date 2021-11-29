@@ -3,7 +3,6 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
-
 group = 'com.kakaopay'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -18,15 +17,34 @@ repositories {
 	mavenCentral()
 }
 
+apply plugin: "io.spring.dependency-management"
+
+ext {
+	/**
+	 * Spring Boot and springCloudVersion must be compatible.
+	 * 2.4.x == 2020.0.x
+	 * ref : https://spring.io/projects/spring-cloud
+	 */
+	// Feign
+	set('springCloudVersion', '2020.0.3')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
 
+	implementation('org.apache.httpcomponents:httpclient:4.5')
+	implementation 'com.google.code.gson:gson:2.8.5'
+
+	implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
 
 
 }
