@@ -20,7 +20,7 @@ public enum CrmsFaqCallType {
     SELECT_FAQ_SMALL_LIST_PAYAPP("도움말 페이앱 소분류", CsType.PAYAPP, "CSWE0000.SELECT_APP_QAT_ANS_ETC", "selectpagerow"),
     SELECT_FAQ_SMALL_LIST_BIZAPP("도움말 비즈앱 소분류", CsType.BIZAPP, "CSWE0000.SELECT_BIZ_QAT_ANS_ETC", "selectpagerow");
 
-    String callName;
+    String description;
     CsType csType;
     String query;
     String type;

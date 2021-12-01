@@ -15,8 +15,6 @@ public class Faq {
     @Getter
     @Setter
     public static class FaqParam {
-//        private String query;
-//        private String type;
         private CrmsFaqCallType crmsFaqCallType;
         private String data;
         private String row;
